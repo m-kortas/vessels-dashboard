@@ -21,10 +21,18 @@ ui <- dashboardPage(
     tabItem(
       tabName = "main",
       fluidRow(
-        img(
-          src = 'https://cdn.pixabay.com/photo/2020/12/13/20/11/ships-5829211_1280.png',
-          width = "50%",
-          height = "50%"
+        box(
+          width = 8,
+          color = "blue",
+          ribbon = TRUE,
+          column(
+            width = 8,
+            img(
+              src = 'https://i.ibb.co/tMjw89H/1.png',
+              width = "100%",
+              height = "50%"
+            )
+          )
         ),
         box(
           width = 8,
@@ -32,7 +40,6 @@ ui <- dashboardPage(
           ribbon = TRUE,
           column(
             width = 8,
-            
             selectInput(
               inputId = "type",
               label = "Select a vessel type",
