@@ -36,6 +36,7 @@ ships <- na.omit(ships)
 ```{r}
 ships <- ships %>% mutate(dist = pointDistance(cbind(prevLON,prevLAT), cbind(LON, LAT), lonlat=TRUE)) 
 ```
+
 ```{r}
 options(digits = 22)
 ```
@@ -59,5 +60,9 @@ ships$SHIP_ID <- as.character(ships$SHIP_ID)
 
 ```{r}
 saveRDS(ships, file = "ships_calculated.Rds")
+```
+
+```{r}
+ships <<- readRDS("ships_calculated.Rds")
 ```
 

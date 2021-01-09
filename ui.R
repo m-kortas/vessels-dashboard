@@ -28,7 +28,7 @@ ui <- dashboardPage(
           column(
             width = 8,
             img(
-              src = 'https://i.ibb.co/tMjw89H/1.png',
+              src = 'https://i.ibb.co/fYdDP5k/1.png',
               width = "100%",
               height = "50%"
             )
