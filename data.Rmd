@@ -1,0 +1,63 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(readr)
+library(data.table)
+library(tidyverse)
+library(rlist)
+library(geosphere)
+library(raster)
+
+ships <- read_csv("ships.csv")
+```
+
+```{r}
+ships <- ships %>% dplyr::select(ship_type, SHIP_ID, DATETIME, LAT, LON)
+```
+
+```{r}
+ships <- ships %>%
+  group_by(SHIP_ID) %>%
+  mutate(prevLON = lag(LON)) %>%
+  mutate(prevLAT = lag(LAT)) %>%
+  mutate(prevDATE = lag(DATETIME))
+```
+
+```{r}
+#apply(ships, 2, function(x) any(is.na(x)))
+```
+```{r}
+ships <- na.omit(ships)
+```
+
+```{r}
+ships <- ships %>% mutate(dist = pointDistance(cbind(prevLON,prevLAT), cbind(LON, LAT), lonlat=TRUE)) 
+```
+```{r}
+options(digits = 22)
+```
+
+```{r}
+ships <- ships %>% group_by(SHIP_ID) %>%
+             filter(dist == max(dist)) 
+```
+
+```{r}
+ships$dist <- round(ships$dist)
+```
+
+```{r}
+ships <- ships[!duplicated(ships[, c("SHIP_ID")], fromLast=T),]
+```
+
+```{r}
+ships$SHIP_ID <- as.character(ships$SHIP_ID)
+```
+
+```{r}
+saveRDS(ships, file = "ships_calculated.Rds")
+```
+
