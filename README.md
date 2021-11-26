@@ -1,4 +1,4 @@
-# Shiny app - analysis and visualisation of vessels on the Baltic Sea
+# Baltic Sea Vessels Analytics Web Application
 
 Check the app [here](https://mkortas.shinyapps.io/vessel-dashboard/)
 
