@@ -5,19 +5,16 @@ Check the app [here](https://mkortas.shinyapps.io/vessel-dashboard/)
 ## Tech Stack
 
 - R Shiny
-- Leaflet 
+- Leaflet
 
 ## Feedback
 
-If you have any feedback, please reach out to me :) 
+If you have any feedback, please reach out to me :)
 
 ## Contributing
 
 Contributions are always welcome!
 
-
 ## Authors
 
 - [@m-kortas](https://www.github.com/m-kortas) Magdalena Kortas
-
-
